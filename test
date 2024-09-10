@@ -1,0 +1,17 @@
+def simpleCipher(encrypted, k):
+    decrypted = ''
+    
+    for char in encrypted:
+        # คำนวณตำแหน่งใหม่ด้วยการเลื่อน k ตัวอักษรไปทางซ้าย (ทวนเข็มนาฬิกา)
+        new_pos = (ord(char) - ord('A') - k) % 26 + ord('A')
+        decrypted += chr(new_pos)
+    
+    return decrypted
+
+# ตัวอย่างการทดสอบ
+encrypted = 'VTAOG'
+k = 2
+result = simpleCipher(encrypted, k)
+result2 = simpleCipher('WKDLODQG', 3)
+print(result)  # ผลลัพธ์คือ 'TRYME'
+print(result2)
